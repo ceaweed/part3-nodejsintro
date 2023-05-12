@@ -14,8 +14,13 @@ mongoose.connect(url)
         console.log('error connecting to MongoDB:', error)
     })
 
+// Creating Note Schema with validations a note must have
 const noteSchema = new mongoose.Schema({
-    content: String,
+    content: {
+        type: String,
+        minLength: 5,
+        required: true
+    },
     important: Boolean,
 })
 
